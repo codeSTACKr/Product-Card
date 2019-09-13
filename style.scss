@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,800,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  @include flexCenter;
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  background: #f2f2f2;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 80vh;
+  // width: 900px;
+  margin: 50px;
+  background: #fff;
+
+  .imgBox {
+    @include flexCenter;
+    position: relative;
+    height: 100%;
+    background: linear-gradient(0deg, #272727 0%, #272727 50%, #595959 100%);
+
+    img {
+      position: absolute;
+      height: 200%;
+      filter: drop-shadow(0 0 15px #000);
+    }
+  }
+
+  .details {
+    @include flexCenter;
+    padding: 20px;
+
+    h2 {
+      font-size: 2.5rem;
+      line-height: 0.8em;
+      color: #444;
+
+      span {
+        display: block;
+        font-size: 0.4em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #999;
+      }
+    }
+
+    p {
+      max-width: 100%;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    h3 {
+      font-size: 2.5rem;
+      color: #999;
+      float: left;
+    }
+
+    button {
+      background: #006EDB;
+      color: #fff;
+      border: none;
+      box-shadow: none;
+      outline: none;
+      padding: 15px 20px;
+      margin-top: 5px;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+      border-radius: 40px;
+      float: right;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (min-width: 1080px) {
+  .container {
+    height: 600px;
+    grid-template-columns: repeat(2, 50%);
+
+    .imgBox img {
+      height: 130%;
+      transform: rotate(-20deg) translate(-50px, -50px);
+      filter: drop-shadow(-6px 10px 8px #000);
+    }
+
+    .details {
+      height: 100%;
+      padding: 40px;
+
+      p {
+        max-width: 80%;
+        margin-left: 10%;
+      }
+    }
+  }
+}
